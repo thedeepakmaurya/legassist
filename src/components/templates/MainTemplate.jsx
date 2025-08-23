@@ -4,7 +4,7 @@ const MainTemplate = ({ children }) => {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className="md:px-28 p-4">{children}</main>
     </>
   );
 };

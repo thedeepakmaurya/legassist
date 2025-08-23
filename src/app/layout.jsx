@@ -1,10 +1,11 @@
 import "./globals.css";
-import { M_PLUS_Rounded_1c } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import "remixicon/fonts/remixicon.css";
 
-const mPlus = M_PLUS_Rounded_1c({
+const urbanist = Urbanist({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "800", "900"],
+  weight: ["400", "700"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -15,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={mPlus.className}>{children}</body>
+      <body className={urbanist.className}>{children}</body>
     </html>
   );
 }

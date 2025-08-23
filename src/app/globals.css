@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
-@theme{
-  --color-primary: #000053;
+@theme {
+  --color-primary: #121212;
   --color-white: #ffffff;
-  --color-light-gray: #f7f7f7
+  --color-light-gray: #f7f7f7;
 }
 
-@utility flex-between{
-   @apply flex items-center justify-between
+@utility flex-between {
+  @apply flex items-center justify-between;
+}
+
+@utility flex-center {
+  @apply flex items-center justify-center;
 }
