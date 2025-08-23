@@ -3,7 +3,7 @@
 @theme {
   --color-primary: #121212;
   --color-white: #ffffff;
-  --color-light-gray: #f7f7f7;
+  --color-light-gray: #d3d3d3;
 }
 
 @utility flex-between {

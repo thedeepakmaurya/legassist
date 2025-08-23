@@ -13,7 +13,7 @@ const About = () => {
         AI-powered assistance, you can understand complex laws and get reliable
         answers to your legal questions.
       </p>
-      <Link href="/signin">
+      <Link className="w-fit" href="/signup">
         <Button
           className="mt-6"
           label="Get Started"

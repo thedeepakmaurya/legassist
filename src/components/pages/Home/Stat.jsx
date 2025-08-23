@@ -11,7 +11,7 @@ const Stat = () => {
           </div>
         ))}
       </div>
-      <hr className="border-light-gray w-full border-b" />
+      <hr className="border-light-gray w-full" />
       <div className="col-span-2 flex items-center gap-1">
         <div>
           {Array(4)
