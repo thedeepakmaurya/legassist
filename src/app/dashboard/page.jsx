@@ -1,10 +1,10 @@
-import Profile from "@/components/pages/Profile";
+import Dashboard from "@/components/pages/Dashboard";
 import MainTemplate from "@/components/templates/MainTemplate";
 
 const page = () => {
   return (
     <MainTemplate>
-      <Profile />
+      <Dashboard />
     </MainTemplate>
   );
 };
