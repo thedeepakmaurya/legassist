@@ -5,8 +5,8 @@ const About = () => {
   return (
     <div className="flex flex-col md:col-span-2">
       <h2 className="mt-8 text-4xl font-bold text-gray-900 md:text-5xl">
-        Next-Gen, <br />
-        Legal Support, Anytime, Anywhere!
+        <span className=" "> Next-Gen</span>, <br />
+        <span className="text-gradient">Legal Support</span>, Anytime, Anywhere!
       </h2>
       <p className="mt-4 max-w-2xl text-gray-600">
         Our platform makes legal guidance simple, fast, and accessible. With
@@ -21,7 +21,7 @@ const About = () => {
         />
       </Link>
       <p className="mt-2 text-sm text-gray-500">
-        <i className="ri-star-s-fill text-xl text-amber-300"></i> Your legal
+        <i className="ri-auction-fill text-xl text-rose-300"></i> Your legal
         help, on your terms.
       </p>
     </div>

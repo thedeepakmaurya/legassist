@@ -12,10 +12,6 @@ const Queries = () => {
           <QueryCard/>
           <QueryCard/>
           <QueryCard/>
-
-        
-
-        
       </div>
     </div>
   );

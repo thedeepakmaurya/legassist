@@ -17,9 +17,9 @@ const Stat = () => {
           {Array(4)
             .fill(null)
             .map((_, i) => (
-              <i key={i} className="ri-star-s-fill ri-xl"></i>
+              <i key={i} className="ri-star-s-fill text-amber-300 ri-xl"></i>
             ))}
-          <i className="ri-star-half-line ri-lg"></i>
+          <i className="ri-star-half-line text-amber-300 ri-lg"></i>
         </div>
         <p className="text-xl font-semibold">
           4.5

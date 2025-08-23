@@ -13,3 +13,7 @@
 @utility flex-center {
   @apply flex items-center justify-center;
 }
+
+@utility text-gradient{
+  @apply bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-600 bg-clip-text text-transparent 
+}

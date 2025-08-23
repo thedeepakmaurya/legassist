@@ -12,10 +12,10 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="flex-between sticky top-0 bg-white/80 rounded-lg px-4 py-2">
+    <header className="flex-between sticky top-0 rounded-lg bg-white/80 px-4 py-2">
       <Link className="text-primary flex items-center gap-2" href="/">
         <h1 className="flex flex-col text-2xl font-semibold">
-          Legal{" "}
+          <span className="text-gradient">Legal </span>
           <span className="pl-6 text-xs font-normal text-gray-600">
             Assistant
           </span>
