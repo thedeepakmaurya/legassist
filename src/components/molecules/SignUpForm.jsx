@@ -1,12 +1,15 @@
 "use client";
 import Button from "@/components/atoms/Button";
 import Input from "@/components/atoms/Input";
-// import { useRHF } from "@/context/FormContext";
+import { useAuth } from "@/context/AuthContext";
+import { alertToast } from "@/utils/toastMessage";
 import { useRouter } from "next/navigation";
 import { useFormContext } from "react-hook-form";
 
 const SignUpForm = () => {
   const router = useRouter();
+
+  const { users } = useAuth();
 
   const {
     register,
@@ -15,14 +18,18 @@ const SignUpForm = () => {
     formState: { errors, isSubmitting },
   } = useFormContext();
 
-  console.log(errors);
-
   const onSubmit = (data) => {
-    let signUpData = JSON.parse(localStorage.getItem("signUp")) || [];
-    signUpData.push(data);
-    localStorage.setItem("signUp", JSON.stringify(signUpData));
-    reset();
-    router.push("/signin");
+    const existedUser = users.find((user) => user.email === data.email);
+
+    if (!existedUser) {
+      let signUpData = JSON.parse(localStorage.getItem("signUp")) || [];
+      signUpData.push(data);
+      localStorage.setItem("signUp", JSON.stringify(signUpData));
+      reset();
+      router.push("/signin");
+    } else {
+      alertToast("Email already exist");
+    }
   };
 
   return (

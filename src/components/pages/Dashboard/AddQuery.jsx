@@ -36,7 +36,7 @@ const AddQuery = ({ onClose, setAllQueries, allQueries }) => {
         <Input
           {...register("title")}
           placeholder="Enter your legal query"
-          errors={errors.title?.message}
+          error={errors.title?.message}
         />
         <div className="flex justify-end">
           <Button

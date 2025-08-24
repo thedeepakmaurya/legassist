@@ -1,4 +1,5 @@
 "use client";
+import { AuthProvider } from "@/context/AuthContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -27,7 +28,7 @@ const AuthTemplate = ({ children }) => {
               {path === "/signup" ? "Sign in here" : "Sign up here"}
             </Link>
           </p>
-          {children}
+          <AuthProvider>{children}</AuthProvider>
 
           {path === "/signup" && (
             <p className="mt-6 text-sm text-gray-600">
@@ -52,12 +53,10 @@ const AuthTemplate = ({ children }) => {
       </div>
 
       <div className="hidden h-screen items-center justify-center bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-600 md:flex md:w-1/2">
-        <Link className="text-white flex items-center gap-2" href="/">
+        <Link className="flex items-center gap-2 text-white" href="/">
           <h1 className="flex flex-col text-7xl font-semibold">
             <span className="">Legal </span>
-            <span className="pl-20 pt-3 text-2xl font-normal">
-              Assistant
-            </span>
+            <span className="pt-3 pl-20 text-2xl font-normal">Assistant</span>
           </h1>
         </Link>
       </div>
