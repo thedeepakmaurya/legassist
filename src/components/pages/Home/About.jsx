@@ -4,7 +4,7 @@ import Link from "next/link";
 const About = () => {
   return (
     <div className="flex flex-col md:col-span-2">
-      <h2 className="mt-8 text-4xl font-bold text-gray-900 md:text-5xl">
+      <h2 className="mt-4 text-4xl font-bold text-gray-900 md:mt-8 md:text-5xl">
         <span className=" "> Next-Gen</span>, <br />
         <span className="text-gradient">Legal Support</span>, Anytime, Anywhere!
       </h2>

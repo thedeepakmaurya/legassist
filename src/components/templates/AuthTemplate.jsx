@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import SignIn from "../pages/Auth/SignIn";
+import Image from "next/image";
 
 const AuthTemplate = ({ children }) => {
   const path = usePathname();
@@ -50,6 +50,17 @@ const AuthTemplate = ({ children }) => {
             </p>
           )}
         </div>
+      </div>
+
+      <div className="hidden h-screen items-center justify-center bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-600 md:flex md:w-1/2">
+        <Link className="text-white flex items-center gap-2" href="/">
+          <h1 className="flex flex-col text-7xl font-semibold">
+            <span className="">Legal </span>
+            <span className="pl-20 pt-3 text-2xl font-normal">
+              Assistant
+            </span>
+          </h1>
+        </Link>
       </div>
     </section>
   );
