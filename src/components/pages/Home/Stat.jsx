@@ -1,3 +1,5 @@
+import { analytics } from "@/constants/analytics";
+
 const Stat = () => {
   return (
     <div className="mt-8 flex flex-col gap-2 md:gap-4">
@@ -17,9 +19,9 @@ const Stat = () => {
           {Array(4)
             .fill(null)
             .map((_, i) => (
-              <i key={i} className="ri-star-s-fill text-amber-300 ri-xl"></i>
+              <i key={i} className="ri-star-s-fill ri-xl text-amber-300"></i>
             ))}
-          <i className="ri-star-half-line text-amber-300 ri-lg"></i>
+          <i className="ri-star-half-line ri-lg text-amber-300"></i>
         </div>
         <p className="text-xl font-semibold">
           4.5
@@ -33,14 +35,3 @@ const Stat = () => {
 };
 
 export default Stat;
-
-const analytics = [
-  {
-    stat: "75.2%",
-    title: "Average daily activity",
-  },
-  {
-    stat: "~20K",
-    title: "Average daily users",
-  },
-];

@@ -1,3 +1,5 @@
+import { companies } from "@/constants/companies";
+
 const Clients = () => {
   return (
     <div className="mt-8 grid grid-cols-2 gap-6 md:grid-cols-6">
@@ -14,12 +16,3 @@ const Clients = () => {
 };
 
 export default Clients;
-
-const companies = [
-  "Lexora",
-  "JurisAI",
-  "Veritas",
-  "Couns",
-  "Trust",
-  "ClauseX",
-];

@@ -17,7 +17,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="flex h-fit flex-col items-center rounded-xl py-4 shadow-lg md:col-span-2">
+    <div className="flex h-fit md:sticky md:top-28 flex-col items-center rounded-xl py-4 shadow-lg md:col-span-2">
       <div className="flex h-24 w-24 items-center justify-center rounded-full bg-black">
         <p className="text-4xl text-white capitalize">{name?.slice(0, 1)}</p>
       </div>
