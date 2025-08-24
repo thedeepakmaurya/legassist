@@ -32,7 +32,7 @@ const Queries = () => {
       </div>
       <div className="mt-8 overflow-x-auto rounded-2xl border border-gray-200">
         <table className="min-w-full rounded-2xl text-nowrap">
-          <thead className="bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-600 text-white">
+          <thead className="background-gradient text-white">
             <tr>
               <th className="px-4 py-3 text-left font-medium">Sr No.</th>
               <th className="px-4 py-3 text-left font-medium">Case Title</th>
