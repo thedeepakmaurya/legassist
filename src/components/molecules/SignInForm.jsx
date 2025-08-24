@@ -15,7 +15,7 @@ const SignInForm = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useRHF();
 
   const onSubmit = (data) => {
@@ -51,7 +51,7 @@ const SignInForm = () => {
         placeholder="Enter password"
         errors={errors}
       />
-      <Button type="submit" label="Signin" className="w-full rounded-lg" />
+      <Button disabled={isSubmitting} type="submit" label="Signin" className="w-full rounded-lg disabled:cursor-not-allowed" />
     </form>
   );
 };

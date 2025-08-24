@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 
 const AuthTemplate = ({ children }) => {
   const path = usePathname();

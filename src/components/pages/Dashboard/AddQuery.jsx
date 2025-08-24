@@ -9,7 +9,7 @@ const AddQuery = ({ onClose, setAllQueries, allQueries }) => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useRHF();
 
   const onSubmit = (data) => {
@@ -40,7 +40,12 @@ const AddQuery = ({ onClose, setAllQueries, allQueries }) => {
           errors={errors}
         />
         <div className="flex justify-end">
-          <Button type="submit" label="Submit Query" />
+          <Button
+            disabled={isSubmitting}
+            type="submit"
+            label="Submit Query"
+            className="disabled:cursor-not-allowed"
+          />
         </div>
       </form>
     </div>
