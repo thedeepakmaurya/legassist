@@ -1,10 +1,13 @@
+import { AuthProvider } from "@/context/AuthContext";
 import Header from "../organisms/Header";
 
 const MainTemplate = ({ children }) => {
   return (
     <>
-      <Header />
-      <main className="md:px-28 p-4">{children}</main>
+      <AuthProvider>
+        <Header />
+        <main className="p-4 md:px-28">{children}</main>
+      </AuthProvider>
     </>
   );
 };

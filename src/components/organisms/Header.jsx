@@ -1,18 +1,14 @@
 "use client";
 import Link from "next/link";
 import Button from "../atoms/Button";
-import { useEffect, useState } from "react";
+import { useAuth } from "@/context/AuthContext";
 
 const Header = () => {
-  const [user, setUser] = useState({});
-
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-    setUser(user);
-  }, []);
+  const { currUser } = useAuth();
+  const { name, email } = currUser || {};
 
   return (
-    <header className="flex-between sticky top-0 rounded-lg bg-white/80 md:px-28 px-4 py-2">
+    <header className="flex-between sticky top-0 rounded-lg bg-white/80 px-4 py-2 md:px-28">
       <Link className="text-primary flex items-center gap-2" href="/">
         <h1 className="flex flex-col text-2xl font-semibold">
           <span className="text-gradient">Legal </span>
@@ -22,10 +18,10 @@ const Header = () => {
         </h1>
       </Link>
       <div>
-        {user ? (
-          <Link href="/profile">
+        {currUser ? (
+          <Link href="/dashboard">
             <p className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-lg font-medium text-white">
-              {user?.name || "U"}
+              {name?.slice(0, 1) || "U"}
             </p>
           </Link>
         ) : (

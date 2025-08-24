@@ -1,16 +1,18 @@
 const Input = (props) => {
-  const { className, value, onChange, type, placeholder, name, ...restProps } = props;
-  return ( 
-    <div>
+  const { className, fieldName, errors, type, placeholder, ...restProps } =
+    props;
+
+  return (
+    <div className="mb-4">
       <input
         {...restProps}
         type={type ? type : "text"}
-        name={name}
-        value={value}
         placeholder={placeholder}
-        onChange={onChange}
-        className={`mb-4 w-full rounded-lg border border-gray-200 focus:border-black px-4 py-3 focus:outline-none ${className}`}
+        className={`w-full rounded-lg border border-gray-200 px-4 py-3 focus:border-black focus:outline-none ${className}`}
       />
+      {errors && errors[fieldName] && (
+        <p className="text-sm text-red-500">{errors[fieldName].message}</p>
+      )}
     </div>
   );
 };

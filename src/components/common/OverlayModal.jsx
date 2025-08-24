@@ -1,6 +1,4 @@
 const ModalOverlay = ({ onClose, content }) => {
- 
-
   return (
     <section
       className="absolute inset-0 z-50 flex h-screen w-full cursor-pointer items-center justify-center backdrop-blur-xs backdrop-brightness-75 backdrop-filter"
