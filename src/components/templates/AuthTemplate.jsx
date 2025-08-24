@@ -15,8 +15,9 @@ const AuthTemplate = ({ children }) => {
           </h1>
           <p className="mb-6 text-gray-600">
             {path === "/signup" ? "Sign up" : "Sign in"} today and let AI
-            simplify your legal needs.<br/>
-            {path === "/signup" 
+            simplify your legal needs.
+            <br />
+            {path === "/signup"
               ? "Already registered"
               : "Don't have an account"}{" "}
             ?

@@ -1,16 +1,27 @@
 "use client";
 import Button from "@/components/atoms/Button";
 import ModalOverlay from "@/components/common/OverlayModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddQuery from "./AddQuery";
+import { RHFProvider } from "@/context/FormContext";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { querySchema } from "@/lib/validations/schema";
+import moment from "moment";
+import NoData from "@/components/atoms/NoData";
 
 const Queries = () => {
   const [isQuery, setisQuery] = useState(false);
+  const [allQueries, setAllQueries] = useState([]);
+
+  useEffect(() => {
+    const queries = JSON.parse(localStorage.getItem("queries")) || [];
+    setAllQueries(queries);
+  }, []);
 
   return (
     <div className="md:col-span-6">
       <div className="flex items-center justify-between">
-        <p className="text-gray-800">Total Queries: 4</p>
+        <p className="text-gray-800">Total Queries: {allQueries?.length || 0}</p>
         <Button
           onClick={() => setisQuery(true)}
           label="New Query"
@@ -29,14 +40,31 @@ const Queries = () => {
             </tr>
           </thead>
           <tbody>
-            <Row />
+            {Array.isArray(allQueries) &&
+              allQueries?.map((query, i) => (
+                <Row data={query} key={i} index={i} />
+              ))}
           </tbody>
         </table>
+        {allQueries?.length < 1 && <NoData />}
       </div>
       {isQuery && (
         <ModalOverlay
           onClose={() => setisQuery(false)}
-          content={<AddQuery />}
+          content={
+            <RHFProvider
+              defaultValues={{
+                title: "",
+              }}
+              resolver={yupResolver(querySchema)}
+            >
+              <AddQuery
+                onClose={() => setisQuery(false)}
+                setAllQueries={setAllQueries}
+                allQueries={allQueries}
+              />
+            </RHFProvider>
+          }
         />
       )}
     </div>
@@ -45,23 +73,27 @@ const Queries = () => {
 
 export default Queries;
 
-const Row = () => {
+const Row = ({ data, index }) => {
+  const { title, createdAt } = data;
+
   return (
     <tr className="border-b border-gray-200 text-gray-600">
-      <td className="px-4 py-3">01.</td>
-      <td className="px-4 py-3 text-sm">
-        <p>Property Dispute</p>
-        <p>Lorem ipsum dolor sit...</p>
+      <td className="px-4 py-3">{index + 1}.</td>
+      <td className="line-clamp-1 px-4 py-3 text-sm">
+        <p>{title}</p>
       </td>
       <td className="px-4 py-3">
-        <span className="rounded-full bg-rose-100 px-4 py-1 text-sm text-rose-600">
-          Closed
+        <span className="rounded-full bg-blue-100 px-4 py-1 text-sm text-blue-600">
+          pending
         </span>
       </td>
-      <td className="px-4 py-3 text-center text-sm">2 days ago</td>
+      <td className="px-4 py-3 text-center text-sm">
+        {moment(createdAt).format("DD-MM-YYYY hh:mm")}
+      </td>
       <td className="flex items-center justify-center gap-2 px-4 py-3">
-        <i className="ri-pencil-fill rounded-full bg-purple-100 px-2 py-1 text-purple-600"></i>
-        <i className="ri-delete-bin-3-line rounded-full bg-rose-100 px-2 py-1 text-rose-600"></i>
+        <button disabled className="disabled:cursor-not-allowed">
+          <i className="ri-delete-bin-3-line rounded-full bg-rose-100 p-2 text-rose-600"></i>
+        </button>
       </td>
     </tr>
   );
