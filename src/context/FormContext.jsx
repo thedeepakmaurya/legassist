@@ -1,17 +1,14 @@
 "use client";
+
 import { FormProvider, useForm } from "react-hook-form";
-import { createContext, useContext } from "react";
 
-const RHFContext = createContext(null);
+export const FormProviderWrapper = ({ children, defaultValues, resolver }) => {
+  const methods = useForm({
+    defaultValues,
+    resolver,
+    mode: "onChange",
+    reValidateMode: "onChange",
+  });
 
-export const RHFProvider = ({ children, defaultValues, resolver }) => {
-  const methods = useForm({ defaultValues, resolver });
-
-  return (
-    <RHFContext.Provider value={methods}>
-      <FormProvider {...methods}>{children}</FormProvider>
-    </RHFContext.Provider>
-  );
+  return <FormProvider {...methods}>{children}</FormProvider>;
 };
-
-export const useRHF = () => useContext(RHFContext);

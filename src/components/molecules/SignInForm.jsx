@@ -1,12 +1,11 @@
 "use client";
-
-import { useRHF } from "@/context/FormContext";
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 import { useRouter } from "next/navigation";
 import { errorToast } from "@/utils/toastMessage";
 import { useAuth } from "@/context/AuthContext";
 import Cookies from "js-cookie";
+import { useFormContext } from "react-hook-form";
 
 const SignInForm = () => {
   const router = useRouter();
@@ -16,7 +15,7 @@ const SignInForm = () => {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useRHF();
+  } = useFormContext();
 
   const onSubmit = (data) => {
     const userExists = users.find(
@@ -39,19 +38,22 @@ const SignInForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input
         {...register("email")}
-        fieldName="email"
         type="email"
         placeholder="Email address"
-        errors={errors}
+        error={errors.email?.message}
       />
       <Input
         {...register("password")}
-        fieldName="password"
         type="password"
         placeholder="Enter password"
-        errors={errors}
+        error={errors.password?.message}
       />
-      <Button disabled={isSubmitting} type="submit" label="Signin" className="w-full rounded-lg disabled:cursor-not-allowed" />
+      <Button
+        disabled={isSubmitting}
+        type="submit"
+        label="Signin"
+        className="w-full rounded-lg disabled:cursor-not-allowed"
+      />
     </form>
   );
 };

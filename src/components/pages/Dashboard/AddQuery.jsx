@@ -1,8 +1,8 @@
 "use client";
 import Button from "@/components/atoms/Button";
 import Input from "@/components/atoms/Input";
-import { useRHF } from "@/context/FormContext";
 import moment from "moment";
+import { useFormContext } from "react-hook-form";
 
 const AddQuery = ({ onClose, setAllQueries, allQueries }) => {
   const {
@@ -10,7 +10,7 @@ const AddQuery = ({ onClose, setAllQueries, allQueries }) => {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useRHF();
+  } = useFormContext();
 
   const onSubmit = (data) => {
     let newQueries = JSON.parse(localStorage.getItem("queries")) || [];
@@ -35,9 +35,8 @@ const AddQuery = ({ onClose, setAllQueries, allQueries }) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           {...register("title")}
-          fieldName="title"
           placeholder="Enter your legal query"
-          errors={errors}
+          errors={errors.title?.message}
         />
         <div className="flex justify-end">
           <Button

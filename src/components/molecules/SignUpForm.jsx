@@ -1,8 +1,9 @@
 "use client";
 import Button from "@/components/atoms/Button";
 import Input from "@/components/atoms/Input";
-import { useRHF } from "@/context/FormContext";
+// import { useRHF } from "@/context/FormContext";
 import { useRouter } from "next/navigation";
+import { useFormContext } from "react-hook-form";
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -12,7 +13,9 @@ const SignUpForm = () => {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useRHF();
+  } = useFormContext();
+
+  console.log(errors);
 
   const onSubmit = (data) => {
     let signUpData = JSON.parse(localStorage.getItem("signUp")) || [];
@@ -26,30 +29,26 @@ const SignUpForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input
         {...register("name")}
-        fieldName="name"
         placeholder="Enter name"
-        errors={errors}
+        error={errors.name?.message}
       />
       <Input
         {...register("email")}
-        fieldName="email"
         type="email"
         placeholder="Email address"
-        errors={errors}
+        error={errors.email?.message}
       />
       <Input
         {...register("password")}
-        fieldName="password"
         type="password"
         placeholder="Enter password"
-        errors={errors}
+        error={errors.password?.message}
       />
       <Input
         {...register("confirmPassword")}
-        fieldName="confirmPassword"
         type="password"
         placeholder="Re enter password"
-        errors={errors}
+        error={errors.confirmPassword?.message}
       />
       <Button
         disabled={isSubmitting}

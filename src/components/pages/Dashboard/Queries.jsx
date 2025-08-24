@@ -3,11 +3,11 @@ import Button from "@/components/atoms/Button";
 import ModalOverlay from "@/components/common/OverlayModal";
 import { useEffect, useState } from "react";
 import AddQuery from "./AddQuery";
-import { RHFProvider } from "@/context/FormContext";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { querySchema } from "@/lib/validations/schema";
 import moment from "moment";
 import NoData from "@/components/atoms/NoData";
+import { FormProviderWrapper } from "@/context/FormContext";
 
 const Queries = () => {
   const [isQuery, setisQuery] = useState(false);
@@ -54,7 +54,7 @@ const Queries = () => {
         <ModalOverlay
           onClose={() => setisQuery(false)}
           content={
-            <RHFProvider
+            <FormProviderWrapper
               defaultValues={{
                 title: "",
               }}
@@ -65,7 +65,7 @@ const Queries = () => {
                 setAllQueries={setAllQueries}
                 allQueries={allQueries}
               />
-            </RHFProvider>
+            </FormProviderWrapper>
           }
         />
       )}
