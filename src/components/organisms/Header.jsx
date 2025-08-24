@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex-between sticky top-0 mx-auto max-w-5xl rounded-lg bg-white/80 px-4 py-2 md:px-28">
+      <header className="flex-between sticky top-0 mx-auto max-w-7xl rounded-lg bg-white/80 px-4 py-2 md:px-28">
         <Link className="text-primary flex items-center gap-2" href="/">
           <h1 className="flex flex-col text-2xl font-semibold">
             <span className="text-gradient">Legal </span>

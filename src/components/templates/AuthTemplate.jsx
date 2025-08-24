@@ -7,7 +7,7 @@ const AuthTemplate = ({ children }) => {
   const path = usePathname();
 
   return (
-    <section className="mx-auto flex min-h-screen max-w-5xl">
+    <section className="mx-auto flex min-h-screen max-w-7xl">
       <div className="z-50 flex w-full flex-col justify-center px-8 md:w-1/2 md:px-16 lg:px-24">
         <div className="mx-auto w-full max-w-md">
           <h1 className="mb-4 text-3xl font-bold">
