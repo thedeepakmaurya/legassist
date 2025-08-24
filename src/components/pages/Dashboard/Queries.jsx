@@ -19,7 +19,7 @@ const Queries = () => {
   }, []);
 
   return (
-    <div className="md:col-span-6">
+    <div className="lg:col-span-6">
       <div className="flex items-center justify-between">
         <p className="text-gray-800">
           Total Queries: {allQueries?.length || 0}

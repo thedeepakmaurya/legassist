@@ -5,7 +5,7 @@ const MainTemplate = ({ children }) => {
   return (
     <AuthProvider>
       <Header />
-      <main className="p-4 md:px-28 ">{children}</main>
+      <main className="container">{children}</main>
     </AuthProvider>
   );
 };

@@ -2,7 +2,7 @@ import { analytics } from "@/constants/analytics";
 
 const Stat = () => {
   return (
-    <div className="mt-8 flex flex-col gap-2 md:gap-4">
+    <div className="mt-4 flex flex-col gap-2 md:gap-4">
       <div className="grid grid-cols-2">
         {analytics.map(({ title, stat }) => (
           <div key={title} className="">
