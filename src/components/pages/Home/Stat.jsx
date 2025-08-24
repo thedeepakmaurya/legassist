@@ -2,8 +2,8 @@ import { analytics } from "@/constants/analytics";
 
 const Stat = () => {
   return (
-    <div className="mt-8 md:mt-2 flex flex-col gap-2 md:gap-4">
-      <div className="grid grid-cols-2">
+    <div className="mt-8 lg:mt-2 flex flex-col gap-2 md:gap-4">
+      <div className="grid grid-cols-2 gap-10 lg:gap-0">
         {analytics.map(({ title, stat }) => (
           <div key={title} className="">
             <h3 className="text-2xl font-semibold text-gray-900 md:text-3xl">
@@ -26,7 +26,7 @@ const Stat = () => {
         <p className="text-xl font-semibold">
           4.5
           <span className="pl-1 text-base font-normal text-gray-600">
-            Average user rating
+            Average rating
           </span>
         </p>
       </div>
