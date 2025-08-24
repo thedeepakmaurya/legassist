@@ -6,7 +6,7 @@ export function middleware(req) {
   const pathname = url.pathname;
 
   if (!token && pathname.startsWith("/dashboard")) {
-    url.pathname = "/signin";
+    url.pathname = "/";
     return NextResponse.redirect(url);
   }
 
