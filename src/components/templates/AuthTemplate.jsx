@@ -7,7 +7,7 @@ const AuthTemplate = ({ children }) => {
   const path = usePathname();
 
   return (
-    <section className="flex min-h-screen">
+    <section className="mx-auto flex min-h-screen max-w-5xl">
       <div className="z-50 flex w-full flex-col justify-center px-8 md:w-1/2 md:px-16 lg:px-24">
         <div className="mx-auto w-full max-w-md">
           <h1 className="mb-4 text-3xl font-bold">
@@ -52,7 +52,7 @@ const AuthTemplate = ({ children }) => {
         </div>
       </div>
 
-      <div className="hidden h-screen items-center justify-center background-gradient md:flex md:w-1/2">
+      <div className="background-gradient hidden h-screen items-center justify-center md:flex md:w-1/2">
         <Link className="flex items-center gap-2 text-white" href="/">
           <h1 className="flex flex-col text-7xl font-semibold">
             <span className="">Legal </span>
