@@ -2,7 +2,7 @@
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 import { useRouter } from "next/navigation";
-import { errorToast } from "@/utils/toastMessage";
+import { errorToast, successToast } from "@/utils/toastMessage";
 import { useAuth } from "@/context/AuthContext";
 import Cookies from "js-cookie";
 import { useFormContext } from "react-hook-form";
@@ -27,6 +27,7 @@ const SignInForm = () => {
       localStorage.setItem("currentUser", JSON.stringify({ name, email }));
       const randomToken = Math.random().toString(36).substring(2, 15);
       Cookies.set("authToken", randomToken, { path: "/", expires: 1 });
+      successToast("Sign in successful");
       reset();
       router.replace("/dashboard");
     } else {

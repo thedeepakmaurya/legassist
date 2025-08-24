@@ -1,6 +1,7 @@
 "use client";
 import Button from "@/components/atoms/Button";
 import { useAuth } from "@/context/AuthContext";
+import { successToast } from "@/utils/toastMessage";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 
@@ -13,6 +14,7 @@ const Profile = () => {
     localStorage.removeItem("currentUser");
     localStorage.removeItem("queries");
     Cookies.remove("authToken");
+    successToast("Logout successful")
     router.refresh();
   };
 

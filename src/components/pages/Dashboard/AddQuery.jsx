@@ -1,6 +1,7 @@
 "use client";
 import Button from "@/components/atoms/Button";
 import Input from "@/components/atoms/Input";
+import { successToast } from "@/utils/toastMessage";
 import moment from "moment";
 import { useFormContext } from "react-hook-form";
 
@@ -18,6 +19,7 @@ const AddQuery = ({ onClose, setAllQueries, allQueries }) => {
     newQueries.push(timeStampData);
     setAllQueries([...allQueries, timeStampData]);
     localStorage.setItem("queries", JSON.stringify(newQueries));
+    successToast("Query added successfuly");
     reset();
     onClose();
   };
