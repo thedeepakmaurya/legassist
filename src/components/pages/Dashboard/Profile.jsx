@@ -1,10 +1,21 @@
 "use client";
 import Button from "@/components/atoms/Button";
 import { useAuth } from "@/context/AuthContext";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 
 const Profile = () => {
+  const router = useRouter();
   const { currUser } = useAuth();
   const { name, email } = currUser || {};
+
+  const handleLogout = () => {
+    localStorage.removeItem("currentUser");
+    localStorage.removeItem("queries");
+    Cookies.remove("authToken");
+    router.refresh();
+  };
+
   return (
     <div className="flex h-fit flex-col items-center rounded-xl py-4 shadow-lg md:col-span-2">
       <div className="flex h-24 w-24 items-center justify-center rounded-full bg-black">
@@ -14,7 +25,7 @@ const Profile = () => {
         {name} <i className="ri-verified-badge-fill text-gradient ri-lg"></i>
       </p>
       <p className="mb-4 text-sm text-gray-600">{email}</p>
-      <Button label="Edit Profile" />
+      <Button label="Logout" onClick={handleLogout} />
     </div>
   );
 };

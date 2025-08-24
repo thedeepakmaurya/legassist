@@ -19,11 +19,7 @@ const Header = () => {
       </Link>
       <div>
         {currUser ? (
-          <Link href="/dashboard">
-            <p className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-lg font-medium text-white">
-              {name?.slice(0, 1) || "U"}
-            </p>
-          </Link>
+          ""
         ) : (
           <Link href="/signin">
             <Button label="Sign in " />

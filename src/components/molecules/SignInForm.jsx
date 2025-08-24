@@ -6,6 +6,7 @@ import Button from "../atoms/Button";
 import { useRouter } from "next/navigation";
 import { errorToast } from "@/utils/toastMessage";
 import { useAuth } from "@/context/AuthContext";
+import Cookies from "js-cookie";
 
 const SignInForm = () => {
   const router = useRouter();
@@ -25,6 +26,8 @@ const SignInForm = () => {
     if (userExists) {
       const { name, email } = userExists;
       localStorage.setItem("currentUser", JSON.stringify({ name, email }));
+      const randomToken = Math.random().toString(36).substring(2, 15);
+      Cookies.set("authToken", randomToken, { path: "/", expires: 1 });
       reset();
       router.replace("/dashboard");
     } else {
